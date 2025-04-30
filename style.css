@@ -1,0 +1,87 @@
+/* style.css */
+body {
+    font-family: 'Arial', sans-serif;
+    background: url('https://images.unsplash.com/photo-1601758123927-196d6f6c624d?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+    background-size: cover;
+    padding: 20px;
+    margin: 0;
+    color: #4e2c0a;
+}
+
+h2 {
+    text-align: center;
+    color: #ff7f00;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px #00000040;
+}
+
+input, select {
+    padding: 10px;
+    margin: 5px;
+    width: 250px;
+    border: 1px solid #a04c00;
+    border-radius: 5px;
+    background-color: #fff7f0;
+    color: #4e2c0a;
+    font-weight: bold;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #d2691e;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #a0522d;
+}
+
+#result {
+    margin-top: 30px;
+    font-size: 18px;
+    background: rgba(255, 250, 240, 0.9);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #a04c00;
+}
+
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pagination button {
+    margin: 0 3px;
+    padding: 8px 12px;
+    border: 1px solid #a04c00;
+    background-color: #fff7f0;
+    color: #a04c00;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.pagination button:hover {
+    background-color: #a04c00;
+    color: white;
+}
+
+.active-page {
+    background-color: #a04c00;
+    color: white;
+}
+
+/* Для изображения кота */
+.cat-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 15px;
+}
