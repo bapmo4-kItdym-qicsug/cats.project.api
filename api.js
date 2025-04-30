@@ -66,3 +66,33 @@ function displayBreeds(breeds) {// функция для отображения 
         paginationDiv.appendChild(pageBtn);
     }
 }
+
+document.getElementById('searchBtn').addEventListener('click', async () => { // обработчик события нажатия кнопки поиска
+    const query = document.getElementById('searchInput').value.toLowerCase();// получаем введенный текст в поле поиска
+    const category = document.getElementById('categorySelect').value;// получаем выбранную категорию
+    const breeds = await fetchBreeds(); // получаем все породы
+
+    filteredBreeds = breeds.filter(breed => { // фильтруем породы по имени и категории
+        const matchesName = breed.name.toLowerCase().includes(query);// проверяем, содержится ли введенный текст в названии породы
+        const matchesCategory = category ? breed.category === category : true;
+        return matchesName && matchesCategory;
+    });
+
+    currentPage = 1;// сбрасываем номер страницы на 1
+    displayBreeds(filteredBreeds);
+});
+
+document.getElementById('randomBtn').addEventListener('click', async () => {// обработчик события нажатия кнопки случайной породы
+    const breeds = await fetchBreeds();//вызывем функцию получения пород
+    if (breeds.length === 0) return;
+
+    const randomBreed = breeds[Math.floor(Math.random() * breeds.length)];
+    document.getElementById('result').innerHTML =
+        `<strong>Случайная порода:</strong><br>
+        ${randomBreed.name} (${randomBreed.origin})<br>
+        Тип шерсти: ${randomBreed.hairless === 1 ? 'Лысая' : 'Обычная'}<br>
+        Гипоаллергенная: ${randomBreed.hypoallergenic === 1 ? 'Да' : 'Нет'}<br>
+        Темперамент: ${randomBreed.temperament}<br><br>
+        <img src="${randomBreed.image ? randomBreed.image.url : 'https://via.placeholder.com/150'}" alt="${randomBreed.name}" style="width: 150px; height: auto; border-radius: 8px;">`;
+    document.getElementById('pagination').innerHTML = '';
+});
