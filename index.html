@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cat Browser</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h2>Cat Browser</h2>
+
+  <input type="text" id="searchInput" placeholder="Введите породу кота...">
+
+  <select id="categorySelect">
+    <option value="">-- Все категории --</option>
+    <option value="hairless">Лысые</option>
+    <option value="hypoallergenic">Гипоаллергенные</option>
+    <option value="usa">Из США</option>
+    <option value="active">Активные</option>
+    <option value="family">Для семьи</option>
+</select>
+
+  <br>
+
+  <button id="searchBtn">Поиск</button>
+  <button id="randomBtn">Случайный кот</button>
+
+  <div id="result"></div>
+  <div class="pagination" id="pagination"></div>
+
+  <script src="api.js"></script>
+</body>
+</html>
