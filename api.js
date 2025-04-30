@@ -96,3 +96,16 @@ document.getElementById('randomBtn').addEventListener('click', async () => {// �
         <img src="${randomBreed.image ? randomBreed.image.url : 'https://via.placeholder.com/150'}" alt="${randomBreed.name}" style="width: 150px; height: auto; border-radius: 8px;">`;
     document.getElementById('pagination').innerHTML = '';
 });
+
+// Функция для фильтрации пород по категориям
+document.getElementById('categorySelect').addEventListener('change', async () => {
+    const category = document.getElementById('categorySelect').value;
+    const breeds = await fetchBreeds();
+
+    filteredBreeds = breeds.filter(breed => {
+        return category ? breed.category === category : true;
+    });
+
+    currentPage = 1;
+    displayBreeds(filteredBreeds);
+});
